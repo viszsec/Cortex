@@ -15,3 +15,11 @@ path.repo: backup
       - elasticsearch
     ports:
       - "0.0.0.0:9001:9001"
+  thehive:
+    image: thehiveproject/thehive:latest
+    depends_on:
+      - elasticsearch
+      - cortex
+    ports:
+      - "0.0.0.0:9000:9000"
+    command: --cortex-port 9001
